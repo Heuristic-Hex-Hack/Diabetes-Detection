@@ -11,10 +11,10 @@ st.write("""
 For diabetic person output is 1 else 0
 """)
 
-image=Image.open('/home/uddeshya/jupyter_files/ML_Project/Web App/diabetes.jpg')
+image=Image.open('diabetes.jpg')
 st.image(image,caption='Machine Learning Project',use_column_width=True)
 
-df=pd.read_csv('/home/uddeshya/jupyter_files/ML_Project/Web App/diabetes.csv')
+df=pd.read_csv('diabetes.csv')
 
 st.subheader('Dataset Used: ')
 
