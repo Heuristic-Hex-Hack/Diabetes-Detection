@@ -43,7 +43,7 @@ if check3:
 X=df.iloc[:,0:8].values
 Y=df.iloc[:,-1].values
 
-X_train,X_test,Y_train,Y_test=train_test_split(X,Y,test_size=0.25,random_state=0)
+X_train,X_test,Y_train,Y_test=train_test_split(X,Y,test_size=0.2,random_state=0)
 
 # get faeture input from the user
 def get_user_input():
@@ -79,8 +79,16 @@ RandomForestClassifier.fit(X_train,Y_train)
 
 # show the model metrics
 st.subheader('Model Test Accuracy score: ')
+st.write(str(metrics.accuracy_score(Y_test,RandomForestClassifier.predict(X_test))*100)+'%')
 
-st.write(str(accuracy_score(Y_test,RandomForestClassifier.predict(X_test))*100)+'%')
+st.subheader('Mean absolute Error: ')
+st.write(str(metrics.mean_absolute_error(Y_test,RandomForestClassifier.predict(X_test))*100)+'%')
+
+st.subheader('Squared Error:')
+st.write(str(metrics.mean_squared_error(Y_test,RandomForestClassifier.predict(X_test))*100)+'%')
+
+st.subheader('R2-score:')
+st.write(str(metrics.r2_score(Y_test,RandomForestClassifier.predict(X_test))*100)+'%')
 
 # store the model predictions in a variable
 prediction=RandomForestClassifier.predict(user_input)
