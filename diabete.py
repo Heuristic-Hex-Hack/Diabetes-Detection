@@ -94,5 +94,3 @@ if prediction==0:
     st.success('You are Healthy :) ')
 if prediction==1:
     st.warning('You are Diabetic :( ')
-
-print(st.__version__)
