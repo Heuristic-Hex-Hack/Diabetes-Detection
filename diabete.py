@@ -3,7 +3,6 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from PIL import Image
-import pickle
 import streamlit as st
 
 # create a title and a sub-title
