@@ -1,1 +1,1 @@
-clock: streamlit run "diabete.py"
+clock: sh setup.sh && streamlit run diabete.py
