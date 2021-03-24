@@ -1,1 +1,1 @@
-clock: python diabete.py
+clock: streamlit run "diabete.py"
