@@ -11,7 +11,7 @@ st.markdown(
 <style>
 .sidebar .sidebar-content {
     background-image: linear-gradient(#99ffcc,#99ffcc);
-    color: white;
+    color: purple;
 }
 </style>
 """,
