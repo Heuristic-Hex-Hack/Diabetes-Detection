@@ -85,8 +85,8 @@ st.write(str(metrics.accuracy_score(Y_test,RandomForestClassifier.predict(X_test
 st.subheader('Mean absolute Error: ')
 st.write(str(metrics.mean_absolute_error(Y_test,RandomForestClassifier.predict(X_test))*100)+'%')
 
-st.subheader('Squared Error:')
-st.write(str(metrics.mean_squared_error(Y_test,RandomForestClassifier.predict(X_test))*100)+'%')
+#st.subheader('Squared Error:')
+#st.write(str(metrics.mean_squared_error(Y_test,RandomForestClassifier.predict(X_test))*100)+'%')
 
 st.subheader('R2-score:')
 st.write(str(metrics.r2_score(Y_test,RandomForestClassifier.predict(X_test))*100)+'%')
