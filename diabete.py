@@ -21,11 +21,10 @@ st.markdown(
 # create a title and a sub-title
 st.write("""
 # Diabetes Detection
-For diabetic person output is 1 else 0
 """)
 
 image=Image.open('diabetes.jpg')
-st.image(image,caption='Machine Learning Project',use_column_width=True)
+st.image(image,caption='Machine Learning Project by Hack Inversion',use_column_width=True)
 
 df=pd.read_csv('diabetes.csv')
 
@@ -108,6 +107,7 @@ st.write(str(metrics.r2_score(Y_test,RandomForestClassifier.predict(X_test))*100
 prediction=RandomForestClassifier.predict(user_input)
 
 # set a  subheader and display the classifications
+st.subheader('For diabetic person output is 1 else 0')
 if st.button('Show Prediction'):
     st.subheader('Classification: ')
     st.write(prediction)
