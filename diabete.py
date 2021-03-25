@@ -5,6 +5,19 @@ from sklearn.ensemble import RandomForestClassifier
 from PIL import Image
 import streamlit as st
 
+#Sidebar Configuration
+st.markdown(
+    """
+<style>
+.sidebar .sidebar-content {
+    background-image: linear-gradient(#99ffcc,#99ffcc);
+    color: white;
+}
+</style>
+""",
+    unsafe_allow_html=True,
+)
+
 # create a title and a sub-title
 st.write("""
 # Diabetes Detection
