@@ -47,6 +47,7 @@ X_train,X_test,Y_train,Y_test=train_test_split(X,Y,test_size=0.2,random_state=0)
 
 # get faeture input from the user
 def get_user_input():
+    st.sidebar.title('User Inputs')
     pregnancies=st.sidebar.slider('pregnancies',0,15,2) #range0-15 and default is 2
     glucose=st.sidebar.slider('glucose',0,200,110)
     blood_pressure=st.sidebar.slider('blood_pressure',0,100,70)
@@ -94,11 +95,11 @@ st.write(str(metrics.r2_score(Y_test,RandomForestClassifier.predict(X_test))*100
 prediction=RandomForestClassifier.predict(user_input)
 
 # set a  subheader and display the classifications
-st.subheader('Classification: ')
+if st.button('Show Prediction'):
+    st.subheader('Classification: ')
+    st.write(prediction)
 
-st.write(prediction) 
-
-if prediction==0:
-    st.success('You are Healthy :) ')
-if prediction==1:
-    st.warning('You are Diabetic :( ')
+    if prediction==0:
+        st.success('You are Healthy :) ')
+    if prediction==1:
+        st.warning('You are Diabetic :( ')
