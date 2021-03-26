@@ -44,7 +44,7 @@ if text1=='M' or text1=='F' or text1=='Others':
     st.write(df.describe())
 
     # visualize data
-    st.subheader('Display')
+    st.subheader('Display Graphs')
     radio1=st.radio('',('Bar Chart','Line Chart'))
     if radio1=='Bar Chart':
         #check1=st.checkbox("Show Bar Chart")
