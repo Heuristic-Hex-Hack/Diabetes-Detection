@@ -67,18 +67,18 @@ if text1=='M' or text1=='F' or text1=='Others':
 
     # get faeture input from the user
     def get_user_input():
-        st.sidebar.title('User Inputs')
-        pregnancies=st.sidebar.slider('pregnancies',0,15,2) #range0-15 and default is 2
-        glucose=st.sidebar.slider('glucose',0,200,110)
-        blood_pressure=st.sidebar.slider('blood_pressure',0,100,70)
-        skin_thickness=st.sidebar.slider('skin_thickness',0,80,30)
-        insulin=st.sidebar.slider('insulin',0.0,700.0,220.0)
+        st.sidebar.title('USER INPUTS')
+        pregnancies=st.sidebar.slider('Pregnancies',0,15,2) #range0-15 and default is 2
+        glucose=st.sidebar.slider('Glucose',0,200,110)
+        blood_pressure=st.sidebar.slider('Blood Pressure',0,100,70)
+        skin_thickness=st.sidebar.slider('Skin Thickness',0,80,30)
+        insulin=st.sidebar.slider('Insulin',0.0,700.0,220.0)
         BMT=st.sidebar.slider('BMT',0.0,60.0,30.0)
         DFF=st.sidebar.slider('DFF',0.0,2.0,0.08)
-        age=st.sidebar.slider('age',10,90,35)
+        age=st.sidebar.slider('Age',10,90,35)
 
         # store a dictionary into a variable
-        user_data={'pregnancies':pregnancies,'glucose':glucose,'blood_pressure':blood_pressure,'skin_thickness':skin_thickness,'insulin':insulin,'BMT':BMT,'DFF':DFF,'age':age}
+        user_data={'Pregnancies':pregnancies,'Glucose':glucose,'Blood Pressure':blood_pressure,'Skin Thickness':skin_thickness,'Insulin':insulin,'BMT':BMT,'DFF':DFF,'Age':age}
 
         # transform data into data frame
 
