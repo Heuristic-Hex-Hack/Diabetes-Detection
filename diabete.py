@@ -115,6 +115,9 @@ if text1=='M' or text1=='F' or text1=='Others':
 
         st.subheader('R2-score:')
         st.write(str(metrics.r2_score(Y_test,RandomForestClassifier.predict(X_test))*100)+'%')
+        
+        st.subheader('Confusion Matrix:')
+        st.write(metrics.confusion_matrix(Y_test,RandomForestClassifier.predict(X_test)))
 
         # store the model predictions in a variable
         prediction=RandomForestClassifier.predict(user_input)
@@ -207,6 +210,9 @@ if text1=='M' or text1=='F' or text1=='Others':
 
         st.subheader('R2-score:')
         st.write(str(metrics.r2_score(Y_test,RandomForestClassifier.predict(X_test))*100)+'%')
+        
+        st.subheader('Confusion Matrix:')
+        st.write(metrics.confusion_matrix(Y_test,RandomForestClassifier.predict(X_test)))
 
         # store the model predictions in a variable
         prediction=RandomForestClassifier.predict(user_input)
