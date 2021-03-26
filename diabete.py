@@ -26,93 +26,101 @@ st.write("""
 image=Image.open('diabetes.jpg')
 st.image(image,caption='Machine Learning Project by Hack Inversion',use_column_width=True)
 
-df=pd.read_csv('diabetes.csv')
+st.subheader("Gender:M/F/other")
+text1=st.text_input("Enter your Gender: M/F/Others")
 
-st.subheader('Dataset Used: ')
+if not text1:
+    st.warning('Please enter your Gender')
+    st.stop()
+if text1=='M' or text1=='F' or text1=='Others':
 
-# show data as table
-st.dataframe(df)
-print('')
-st.write(df.describe())
+    df=pd.read_csv('diabetes.csv')
 
-# visualize data
-st.subheader('Display')
-radio1=st.radio('',('Bar Chart','Line Chart'))
-if radio1=='Bar Chart':
-    #check1=st.checkbox("Show Bar Chart")
-    #if check1:
-        st.bar_chart(df)
-else:
-    #check2=st.checkbox("Show Line Chart")
-    #if check2:
-    st.line_chart(df)
+    st.subheader('Dataset Used: ')
 
-check3=st.checkbox("Show Area Chart")
-if check3:
-    st.area_chart(df,height=300,width=1100,use_container_width=True)
+    # show data as table
+    st.dataframe(df)
+    print('')
+    st.write(df.describe())
 
-# split data
-X=df.iloc[:,0:8].values
-Y=df.iloc[:,-1].values
+    # visualize data
+    st.subheader('Display')
+    radio1=st.radio('',('Bar Chart','Line Chart'))
+    if radio1=='Bar Chart':
+        #check1=st.checkbox("Show Bar Chart")
+        #if check1:
+            st.bar_chart(df)
+    else:
+        #check2=st.checkbox("Show Line Chart")
+        #if check2:
+        st.line_chart(df)
 
-X_train,X_test,Y_train,Y_test=train_test_split(X,Y,test_size=0.2,random_state=0)
+    check3=st.checkbox("Show Area Chart")
+    if check3:
+        st.area_chart(df,height=300,width=1100,use_container_width=True)
 
-# get faeture input from the user
-def get_user_input():
-    st.sidebar.title('User Inputs')
-    pregnancies=st.sidebar.slider('pregnancies',0,15,2) #range0-15 and default is 2
-    glucose=st.sidebar.slider('glucose',0,200,110)
-    blood_pressure=st.sidebar.slider('blood_pressure',0,100,70)
-    skin_thickness=st.sidebar.slider('skin_thickness',0,80,30)
-    insulin=st.sidebar.slider('insulin',0.0,700.0,220.0)
-    BMT=st.sidebar.slider('BMT',0.0,60.0,30.0)
-    DFF=st.sidebar.slider('DFF',0.0,2.0,0.08)
-    age=st.sidebar.slider('age',10,90,35)
+    # split data
+    X=df.iloc[:,0:8].values
+    Y=df.iloc[:,-1].values
 
-    # store a dictionary into a variable
-    user_data={'pregnancies':pregnancies,'glucose':glucose,'blood_pressure':blood_pressure,'skin_thickness':skin_thickness,'insulin':insulin,'BMT':BMT,'DFF':DFF,'age':age}
+    X_train,X_test,Y_train,Y_test=train_test_split(X,Y,test_size=0.2,random_state=0)
 
-    # transform data into data frame
+    # get faeture input from the user
+    def get_user_input():
+        st.sidebar.title('User Inputs')
+        pregnancies=st.sidebar.slider('pregnancies',0,15,2) #range0-15 and default is 2
+        glucose=st.sidebar.slider('glucose',0,200,110)
+        blood_pressure=st.sidebar.slider('blood_pressure',0,100,70)
+        skin_thickness=st.sidebar.slider('skin_thickness',0,80,30)
+        insulin=st.sidebar.slider('insulin',0.0,700.0,220.0)
+        BMT=st.sidebar.slider('BMT',0.0,60.0,30.0)
+        DFF=st.sidebar.slider('DFF',0.0,2.0,0.08)
+        age=st.sidebar.slider('age',10,90,35)
 
-    features=pd.DataFrame(user_data,index=[0])
-    return features
+        # store a dictionary into a variable
+        user_data={'pregnancies':pregnancies,'glucose':glucose,'blood_pressure':blood_pressure,'skin_thickness':skin_thickness,'insulin':insulin,'BMT':BMT,'DFF':DFF,'age':age}
 
-# store user input into  a variable
-user_input=get_user_input()
+        # transform data into data frame
 
-# set subheader and display user input
-st.subheader('User Input: ')
+        features=pd.DataFrame(user_data,index=[0])
+        return features
 
-st.write(user_input)
+    # store user input into  a variable
+    user_input=get_user_input()
 
-# create and train model
-RandomForestClassifier=RandomForestClassifier()
+    # set subheader and display user input
+    st.subheader('User Input: ')
 
-RandomForestClassifier.fit(X_train,Y_train)
+    st.write(user_input)
 
-# show the model metrics
-st.subheader('Model Test Accuracy score: ')
-st.write(str(metrics.accuracy_score(Y_test,RandomForestClassifier.predict(X_test))*100)+'%')
+    # create and train model
+    RandomForestClassifier=RandomForestClassifier()
 
-st.subheader('Mean absolute Error: ')
-st.write(str(metrics.mean_absolute_error(Y_test,RandomForestClassifier.predict(X_test))*100)+'%')
+    RandomForestClassifier.fit(X_train,Y_train)
 
-#st.subheader('Squared Error:')
-#st.write(str(metrics.mean_squared_error(Y_test,RandomForestClassifier.predict(X_test))*100)+'%')
+    # show the model metrics
+    st.subheader('Model Test Accuracy score: ')
+    st.write(str(metrics.accuracy_score(Y_test,RandomForestClassifier.predict(X_test))*100)+'%')
 
-st.subheader('R2-score:')
-st.write(str(metrics.r2_score(Y_test,RandomForestClassifier.predict(X_test))*100)+'%')
+    st.subheader('Mean absolute Error: ')
+    st.write(str(metrics.mean_absolute_error(Y_test,RandomForestClassifier.predict(X_test))*100)+'%')
 
-# store the model predictions in a variable
-prediction=RandomForestClassifier.predict(user_input)
+    #st.subheader('Squared Error:')
+    #st.write(str(metrics.mean_squared_error(Y_test,RandomForestClassifier.predict(X_test))*100)+'%')
 
-# set a  subheader and display the classifications
-st.subheader('For diabetic person output is 1 else 0')
-if st.button('Show Prediction'):
-    st.subheader('Classification: ')
-    st.write(prediction)
+    st.subheader('R2-score:')
+    st.write(str(metrics.r2_score(Y_test,RandomForestClassifier.predict(X_test))*100)+'%')
 
-    if prediction==0:
-        st.success('You are Healthy :) ')
-    if prediction==1:
-        st.warning('You are Diabetic :( ')
+    # store the model predictions in a variable
+    prediction=RandomForestClassifier.predict(user_input)
+
+    # set a  subheader and display the classifications
+    st.subheader('For diabetic person output is 1 else 0')
+    if st.button('Show Prediction'):
+        st.subheader('Classification: ')
+        st.write(prediction)
+
+        if prediction==0:
+            st.success('You are Healthy :) ')
+        if prediction==1:
+            st.warning('You are Diabetic :( ')
