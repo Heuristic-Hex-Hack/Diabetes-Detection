@@ -46,7 +46,7 @@ if text1=='M' or text1=='F' or text1=='Others':
 
         # visualize data
         st.header('Display Graphs')
-        select1=st.selectbox('Select the Input variable',('Pregnancies','Glucose','SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age'))
+        select1=st.selectbox('Select the Input variable',('Pregnancies','Glucose','BloodPressure','SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age'))
 
         radio1=st.radio('',('Bar Chart','Line Chart'))
 
@@ -56,6 +56,8 @@ if text1=='M' or text1=='F' or text1=='Others':
                 st.bar_chart(df['Pregnancies'])
             if select1=='Glucose':
                 st.bar_chart(df['Glucose'])
+            if select3=='BloodPressure':
+                st.bar_chart(df['BloodPressure'])
             if select1=='SkinThickness':
                 st.bar_chart(df['SkinThickness'])
             if select1=='Insulin':
@@ -72,6 +74,8 @@ if text1=='M' or text1=='F' or text1=='Others':
                 st.line_chart(df['Pregnancies'])
             if select1=='Glucose':
                 st.line_chart(df['Glucose'])
+            if select3=='BloodPressure':
+                st.bar_chart(df['BloodPressure'])
             if select1=='SkinThickness':
                 st.line_chart(df['SkinThickness'])
             if select1=='Insulin':
@@ -85,12 +89,14 @@ if text1=='M' or text1=='F' or text1=='Others':
 
         check2=st.checkbox("Show Area Chart")
         if check2:
-            select2=st.selectbox('Select Input variable',('Pregnancies','Glucose','SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age'))
+            select2=st.selectbox('Select Input variable',('Pregnancies','Glucose','BloodPressure','SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age'))
             
             if select2=='Pregnancies':    
                 st.area_chart(df['Pregnancies'])
             if select2=='Glucose':
                 st.area_chart(df['Glucose'])
+            if select3=='BloodPressure':
+                st.bar_chart(df['BloodPressure'])
             if select2=='SkinThickness':
                 st.area_chart(df['SkinThickness'])
             if select2=='Insulin':
@@ -182,7 +188,7 @@ if text1=='M' or text1=='F' or text1=='Others':
 
         # visualize data
         st.header('Display Graphs')
-        select3=st.selectbox('Select the Input variable',('Glucose','SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age'))
+        select3=st.selectbox('Select the Input variable',('Glucose','BloodPressure','SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age'))
         
         radio2=st.radio('',('Bar Chart','Line Chart'))
 
@@ -190,6 +196,8 @@ if text1=='M' or text1=='F' or text1=='Others':
 
             if select3=='Glucose':
                 st.bar_chart(df['Glucose'])
+            if select3=='BloodPressure':
+                st.bar_chart(df['BloodPressure'])
             if select3=='SkinThickness':
                 st.bar_chart(df['SkinThickness'])
             if select3=='Insulin':
@@ -202,10 +210,10 @@ if text1=='M' or text1=='F' or text1=='Others':
                 st.bar_chart(df['Age'])
         else:
             
-            if select3=='Pregnancies':    
-                st.line_chart(df['Pregnancies'])
             if select3=='Glucose':
                 st.line_chart(df['Glucose'])
+            if select3=='BloodPressure':
+                st.bar_chart(df['BloodPressure'])
             if select3=='SkinThickness':
                 st.line_chart(df['SkinThickness'])
             if select3=='Insulin':
@@ -219,10 +227,12 @@ if text1=='M' or text1=='F' or text1=='Others':
 
         check3=st.checkbox("Show Area Chart")
         if check3:
-            select4=st.selectbox('Select Input variable',('Glucose','SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age'))
+            select4=st.selectbox('Select Input variable',('Glucose','BloodPressure','SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age'))
 
             if select4=='Glucose':
                 st.area_chart(df['Glucose'])
+            if select3=='BloodPressure':
+                st.bar_chart(df['BloodPressure'])
             if select4=='SkinThickness':
                 st.area_chart(df['SkinThickness'])
             if select4=='Insulin':
