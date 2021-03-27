@@ -56,7 +56,7 @@ if text1=='M' or text1=='F' or text1=='Others':
                 st.bar_chart(df['Pregnancies'])
             if select1=='Glucose':
                 st.bar_chart(df['Glucose'])
-            if select3=='BloodPressure':
+            if select1=='BloodPressure':
                 st.bar_chart(df['BloodPressure'])
             if select1=='SkinThickness':
                 st.bar_chart(df['SkinThickness'])
@@ -74,7 +74,7 @@ if text1=='M' or text1=='F' or text1=='Others':
                 st.line_chart(df['Pregnancies'])
             if select1=='Glucose':
                 st.line_chart(df['Glucose'])
-            if select3=='BloodPressure':
+            if select1=='BloodPressure':
                 st.bar_chart(df['BloodPressure'])
             if select1=='SkinThickness':
                 st.line_chart(df['SkinThickness'])
@@ -95,7 +95,7 @@ if text1=='M' or text1=='F' or text1=='Others':
                 st.area_chart(df['Pregnancies'])
             if select2=='Glucose':
                 st.area_chart(df['Glucose'])
-            if select3=='BloodPressure':
+            if select2=='BloodPressure':
                 st.bar_chart(df['BloodPressure'])
             if select2=='SkinThickness':
                 st.area_chart(df['SkinThickness'])
@@ -231,7 +231,7 @@ if text1=='M' or text1=='F' or text1=='Others':
 
             if select4=='Glucose':
                 st.area_chart(df['Glucose'])
-            if select3=='BloodPressure':
+            if select4=='BloodPressure':
                 st.bar_chart(df['BloodPressure'])
             if select4=='SkinThickness':
                 st.area_chart(df['SkinThickness'])
